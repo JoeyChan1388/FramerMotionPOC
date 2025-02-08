@@ -1,4 +1,4 @@
-import { useState, useRef} from "react";
+import { useState, useRef, useEffect} from "react";
 import { useSpring, animated } from "react-spring";
 import "./App.css";
 import PageIndicator from "./components/PageIndicator/PageIndicator";
@@ -18,7 +18,15 @@ import TeamCarousel from "./components/TeamCarousel/TeamCarousel";
 
 gsap.registerPlugin(TextPlugin);
 
+function onClick(e) {
+  e.preventDefault();
+  grecaptcha.enterprise.ready(async () => {
+    const token = await grecaptcha.enterprise.execute('6LeNCc0qAAAAAITLjgp9Dm0mq3GcbaiXWzB9WEFR', {action: 'LOGIN'});
+  });
+}
+
 function App() {
+
   // State
   const [currentPage, setCurrentPage] = useState(0);
   const [showDiscover, setShowDiscover] = useState(false);
@@ -381,8 +389,8 @@ function App() {
           />
 
           <ReCAPTCHA
-            ref={recaptchaRef}
-            sitekey="YOUR_RECAPTCHA_SITE_KEY"
+            //ref={recaptchaRef}
+            sitekey="6LeNCc0qAAAAAITLjgp9Dm0mq3GcbaiXWzB9WEFR"
             onChange={handleRecaptchaChange}
           />
 
@@ -390,10 +398,11 @@ function App() {
             type="submit"
             style={{
               padding: "10px",
-              borderRadius: "5px",
-              backgroundColor: "#0A66C2",
+              borderRadius: "10px",
+              backgroundColor: "#007bff",
               color: "white",
               cursor: "pointer",
+              fontWeight: "bold",
               width: "100%"
             }}
           >
