@@ -74,7 +74,7 @@ export const teamMembers = [
   {
     name: "Zian Zhou",
     role: "Full-Stack Developer",
-    bio: "With a background in full-stack development, Zian is ready to make a large splash in the fintech world",
+    bio: "I'm a backend-focused software engineer passionate about building real-world products that create value for users. I'm excited to be in an environment where I can contribute directly to the core product, grow fast, and take on meaningful ownership in a tight-knit team",
     url: "https://www.linkedin.com/in/zian-zhou/",
   },
   {
